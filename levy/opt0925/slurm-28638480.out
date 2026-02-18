@@ -1,0 +1,12 @@
+ERROR: LoadError: ArgumentError: Cannot open '/home/tingtao/cathetersim/0925/0925-5gon-1.txt': not a file
+Stacktrace:
+ [1] readdlm_auto(input::String, dlm::Char, T::Type, eol::Char, auto::Bool; opts::Base.Pairs{Symbol, Int64, Tuple{Symbol}, NamedTuple{(:skipstart,), Tuple{Int64}}})
+   @ DelimitedFiles /central/software/julia/1.7.2/share/julia/stdlib/v1.7/DelimitedFiles/src/DelimitedFiles.jl:234
+ [2] #readdlm#5
+   @ /central/software/julia/1.7.2/share/julia/stdlib/v1.7/DelimitedFiles/src/DelimitedFiles.jl:170 [inlined]
+ [3] #readdlm#3
+   @ /central/software/julia/1.7.2/share/julia/stdlib/v1.7/DelimitedFiles/src/DelimitedFiles.jl:118 [inlined]
+ [4] top-level scope
+   @ /central/groups/daraio-group/EdmondZhou/storage/catheter/cathetersim/levy/opt0925/pent0925.jl:96
+in expression starting at /central/groups/daraio-group/EdmondZhou/storage/catheter/cathetersim/levy/opt0925/pent0925.jl:40
+read from 0925-5gon-1.txt
