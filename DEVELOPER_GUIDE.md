@@ -36,8 +36,16 @@ This module extends the core solver with orientation reset logic:
 - **Reset Mechanism**: When a particle's internal clock (`data[i]`) is exceeded, it draws a new run time and a new random orientation.
 - **Initialization**: Requires `ParticleData.data` to be initialized with initial reorientation schedules.
 
-## Data Schema: COMSOL Flows
-- **Input**: Tab-delimited `.txt` files.
+## Flow Field Generation (WaterLily.jl vs COMSOL)
+The simulation requires 2D velocity and vorticity fields as input. Historically, these were generated using COMSOL, but a Julia-native alternative has been implemented.
+
+- **Legacy COMSOL**: Tab-delimited `.txt` files with 9-line headers and $1001 \times 201$ resolution.
+- **Julia Alternative**: [generate_flow.jl](generate_flow.jl) uses `WaterLily.jl` to generate compatible flow fields without requiring a COMSOL license. This is the recommended troubleshooting path when licenses are unavailable.
+
+### Data Schema
+- **Input**: Tab-delimited `.txt` files (e.g., `flow_41_41_2.txt`).
 - **Header**: First 9 lines are ignored.
-- **Resolution**: Historically structured as $1001 \times 201$.
+- **Resolution**: Flexible (WaterLily version uses $1024 \times 256$ for performance).
 - **Columns**: $U$ (Col 3), $V$ (Col 4), $\Omega$ (Col 5).
+
+For more details, see [CFD_TRANSITION.md](CFD_TRANSITION.md).
