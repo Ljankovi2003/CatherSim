@@ -1,1 +1,5 @@
-*.toml
+.DS_Store
+Manifest.toml
+
+# All outputs go to outputs/
+outputs/
